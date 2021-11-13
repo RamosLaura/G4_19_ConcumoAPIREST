@@ -56,7 +56,8 @@ function AgregarFactura(){
     };
 
     var datosfacturajson= JSON.stringify(datosfactura);
-    $,ajax({
+    alert(datosfacturajson);
+    $.ajax({
         url:UrlPostFactura,
         type:'POST',
         data: datosfacturajson,
