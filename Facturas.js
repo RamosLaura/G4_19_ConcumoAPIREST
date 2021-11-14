@@ -81,7 +81,7 @@ function CargarFactura(idfactura) {
     };
 
     var datosfacturajson = JSON.stringify(datosfactura);
-   // alert(datosfacturajson);
+   alert(datosfacturajson);
     $.ajax({
         url: UrlGetUno,
         type: 'POST',
@@ -98,7 +98,7 @@ function CargarFactura(idfactura) {
             $('#totalisv').val(MiItems[0].TOTAL_ISV);
             $('#total').val(MiItems[0].TOTAL);
             $('#fechavencimiento').val(MiItems[0].FECHA_VENCIMIENTO);
-            $('#estado').val(MiItems[0].ESTADO );
+            $('#estado').val(MiItems[0].ESTADO);
             var btnactualizar = '<input type="text" id="btn_actualizar" onclick=" ActualizarFactura(' + MiItems[0].ID + ')" value= "Actualizar Facrura" class="btn btn-primary"></input>';
             $('.button').html(btnactualizar);
         }
@@ -140,7 +140,7 @@ function EliminarFactura(idfactura) {
     };
 
     var datosfacturajson = JSON.stringify(datosfactura);
-    //alert(datosfacturajson);
+    alert(datosfacturajson);
     $.ajax({
         url: UrlDeleteFactura,
         type: 'DELETE',
