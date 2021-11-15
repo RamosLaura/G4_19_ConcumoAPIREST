@@ -100,7 +100,7 @@ function CargarFactura(idfactura) {
             $('#total').val(MiItems[0].TOTAL);
             $('#fechavencimiento').val(MiItems[0].FECHA_VENCIMIENTO);
             $('#estado').val(MiItems[0].ESTADO);
-            var btnactualizar = '<input type="submit" id="btn_actualizar" onclick=" ActualizarFactura(' + MiItems[0].ID + ')" value= "Actualizar Facrura" class="btn btn-primary"></input>';
+            var btnactualizar = '<input type="submit" id="btn_actualizar" onclick=" ActualizarFactura(' + MiItems[0].ID + ')" value= "Actualizar Factura" class="btn btn-primary"></input>';
             $('.button').html(btnactualizar);
         }
     });
