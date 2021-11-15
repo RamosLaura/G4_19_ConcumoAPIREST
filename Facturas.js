@@ -75,6 +75,7 @@ function AgregarFactura() {
 
 }
 
+//Captura el ID pero una vez que entra a $.ajax no hace nada :(
 function CargarFactura(idfactura) {
     var datosfactura = {
         ID: idfactura
@@ -134,14 +135,13 @@ function ActualizarFactura(idfactura) {
     alert("Factura Actualizada");
 }
 
+//X2 Captura el ID pero una vez que entra a $.ajax no hace nada :(
 function EliminarFactura(idfactura) {
     var datosfactura = {
         ID: idfactura
     };
-
     var datosfacturajson = JSON.stringify(datosfactura);
    // alert(datosfacturajson);
-
    $.ajax({
     url: UrlDeleteFactura,
     type: 'DELETE',
