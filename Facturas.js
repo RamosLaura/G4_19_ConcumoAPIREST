@@ -140,17 +140,19 @@ function EliminarFactura(idfactura) {
     };
 
     var datosfacturajson = JSON.stringify(datosfactura);
-    alert(datosfacturajson);
-    $.ajax({
-        url: UrlDeleteFactura,
-        type: 'DELETE',
-        data: datosfacturajson,
-        datatype: 'JSON',
-        contentType: 'application/json',
-        success: function (response) {
-            console.log(response);
-        }
+   // alert(datosfacturajson);
 
+   $.ajax({
+    url: UrlDeleteFactura,
+    type: 'DELETE',
+    data: datosfacturajson,
+    datatype: 'JSON',
+        contentType: 'aplication/json',
+        success: function(response){
+            console.log(response);
+            
+        }
     });
+
     alert("Factura Eliminada");
 }
