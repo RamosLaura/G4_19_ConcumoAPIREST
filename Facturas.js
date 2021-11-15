@@ -8,7 +8,7 @@ $(document).ready(function () {
 
 });
 
-//lista
+
 function CargarFacturas() {
     $.ajax({
         url: UrlGetFacturas,
@@ -43,7 +43,7 @@ function CargarFacturas() {
     })
 }
 
-//Lista
+
 function AgregarFactura() {
     var datosfactura = {
         numerofactura: $('#numerofactura').val(),
@@ -75,14 +75,14 @@ function AgregarFactura() {
 
 }
 
-//Captura el ID pero una vez que entra a $.ajax no hace nada :(
+
 function CargarFactura(idfactura) {
     var datosfactura = {
-        ID: idfactura
+        id: idfactura
     };
 
     var datosfacturajson = JSON.stringify(datosfactura);
-   alert(datosfacturajson);
+   
     $.ajax({
         url: UrlGetUno,
         type: 'POST',
@@ -100,7 +100,7 @@ function CargarFactura(idfactura) {
             $('#total').val(MiItems[0].TOTAL);
             $('#fechavencimiento').val(MiItems[0].FECHA_VENCIMIENTO);
             $('#estado').val(MiItems[0].ESTADO);
-            var btnactualizar = '<input type="text" id="btn_actualizar" onclick=" ActualizarFactura(' + MiItems[0].ID + ')" value= "Actualizar Facrura" class="btn btn-primary"></input>';
+            var btnactualizar = '<input type="submit" id="btn_actualizar" onclick=" ActualizarFactura(' + MiItems[0].ID + ')" value= "Actualizar Facrura" class="btn btn-primary"></input>';
             $('.button').html(btnactualizar);
         }
     });
@@ -108,15 +108,15 @@ function CargarFactura(idfactura) {
 
 function ActualizarFactura(idfactura) {
     var datosfactura = {
-        ID: idfactura,
-        numerofactura: $('#numerofactura').val(),
-        idsocio: $('#idsocio').val(),
-        fechafactura: $('#fechafactura').val(),
+        id: idfactura,
+        numero_factura: $('#numerofactura').val(),
+        id_socio: $('#idsocio').val(),
+        fecha_factura: $('#fechafactura').val(),
         detalle: $('#detalle').val(),
-        subtotal: $('#subtotal').val(),
-        totalisv: $('#totalisv').val(),
+        sub_total: $('#subtotal').val(),
+        total_isv: $('#totalisv').val(),
         total: $('#total').val(),
-        fechavencimiento: $('#fechavencimiento').val(),
+        fecha_vencimiento: $('#fechavencimiento').val(),
         estado: $('#estado').val()
     };
     var datosfacturajson = JSON.stringify(datosfactura);
@@ -135,24 +135,23 @@ function ActualizarFactura(idfactura) {
     alert("Factura Actualizada");
 }
 
-//X2 Captura el ID pero una vez que entra a $.ajax no hace nada :(
+
 function EliminarFactura(idfactura) {
     var datosfactura = {
-        ID: idfactura
+        id: idfactura
     };
     var datosfacturajson = JSON.stringify(datosfactura);
-   // alert(datosfacturajson);
    $.ajax({
-    url: UrlDeleteFactura,
-    type: 'DELETE',
-    data: datosfacturajson,
-    datatype: 'JSON',
-        contentType: 'aplication/json',
-        success: function(response){
+        url: UrlDeleteFactura,
+        type: 'DELETE',
+        data: datosfacturajson,
+        datatype: 'JSON',
+        contentType: 'application/json',
+        success: function (response) {
             console.log(response);
-            
-        }
-    });
 
+        }
+
+    });
     alert("Factura Eliminada");
 }
